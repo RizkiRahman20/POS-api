@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Helpers\ApiResponse;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UploadProductCategoryImageRequest;
+use App\Http\Resources\ProductCategoryResource;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -25,5 +26,11 @@ class ProductCategoryImageController extends Controller
          }
 
          $path = $request->file('image')->store('product_categories', 'public');
+
+         $category->update(['image' => $path]);
+
+         return ApiResponse::success(new ProductCategoryResource($category),
+         'Product Category image uploaded successfully'
+         );
     }
 }
