@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\ProductCategoryController;
 use App\Http\Controllers\Api\V1\ProductCategoryImageController;
+use App\Http\Controllers\Api\V1\CustomerController;
 use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\Api\V1\ProductImageController;
 use Illuminate\Http\Request;
@@ -21,5 +22,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('products/option', [ProductController::class, 'option']);
     Route::post('products/{id}/image', [ProductImageController::class, 'store']);
     Route::apiResource('products', ProductController::class);
+
+    Route::get('customers/option', [CustomerController::class, 'option']);
+    Route::apiResource('customers', CustomerController::class);
     });
 });
