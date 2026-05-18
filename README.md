@@ -15,6 +15,7 @@ Buka terminal (Linux/macOS) atau Command Prompt/Git Bash (Windows), lalu pilih s
 **1. Menggunakan HTTPS (Direkomendasikan untuk pemula):**
 ```bash
 git clone [https://github.com/RizkiRahman20/POS-api.git]
+```
 
 **2. Install Dependensi Projek**
 ```bash
