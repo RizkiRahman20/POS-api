@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\ProductCategoryController;
 use App\Http\Controllers\Api\V1\ProductCategoryImageController;
+use App\Http\Controllers\Api\V1\ProductController;
+use App\Http\Controllers\Api\V1\ProductImageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +17,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('product-categories/option', [ProductCategoryController::class, 'option']);
     Route::post('product-categories/{id}/image', [ProductCategoryImageController::class, 'store']);
     Route::apiResource('product-categories', ProductCategoryController::class);
+
+    Route::get('products/option', [ProductController::class, 'option']);
+    Route::post('products/{id}/image', [ProductImageController::class, 'store']);
+    Route::apiResource('products', ProductController::class);
     });
 });
